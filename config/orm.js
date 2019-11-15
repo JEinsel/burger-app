@@ -2,20 +2,53 @@ var connection = require("./connections");
 
 var orm = {
 
-    all: function () {
-
+    all: function (tableInput, cb) {
+        var queryString = "SELECT * FROM " + tableInput + ";"
+        connection.query(queryString, function (error, results) {
+            if (error) throw error;
+            cb(results)
+        })
     },
 
 
 
+    create: function (table, cols, vals, cb) {
+        var queryString = "INSERT INTO " + table;
 
-    create: function () {
+        queryString += " (";
+        queryString += cols.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += printQuestionMarks(vals.length);
+        queryString += ") ";
 
+        console.log(queryString);
+
+        connection.query(queryString, vals, function (err, result) {
+            if (err) {
+                throw err;
+            }
+
+            cb(result);
+        });
     },
 
+    update: function (table, objColVals, condition, cb) {
+        var queryString = "UPDATE " + table;
 
-    update: function () {
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
 
+        console.log(queryString);
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
+
+            cb(result);
+        });
     }
 
 }

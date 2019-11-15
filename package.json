@@ -1,0 +1,24 @@
+{
+  "name": "express-handlebars",
+  "version": "1.0.0",
+  "description": "--- noteId: \"4fdf920007d211eaa3c399471009ae09\" tags: []",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JEinsel/node-express-handlebars.git"
+  },
+  "author": "Joshua Einsel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JEinsel/node-express-handlebars/issues"
+  },
+  "homepage": "https://github.com/JEinsel/node-express-handlebars#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
+  }
+}

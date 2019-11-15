@@ -2,19 +2,19 @@ var connection = require("./connections");
 
 var orm = {
 
-    selectAll: function () {
+    all: function () {
 
     },
 
 
 
 
-    insertOne: function () {
+    create: function () {
 
     },
 
 
-    updateOne: function () {
+    update: function () {
 
     }
 

@@ -4,8 +4,10 @@
 
 <ul>
   {{#each burger}}
-    {{#unless devoured}}
-      {{> burger/main devoured=true}}
+    {{#unless this.devoured}}
+							<p>{{this.id}}. {{this.burger_name}}</p>
+
+      {{!-- {{> burger/main devoured=true}} --}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -14,8 +16,11 @@
 
 <ul>
   {{#each burger}}
-    {{#if devoured}}
-      {{> burger/main devoured=false}}
+    {{#if this.devoured}}
+    							<p>{{this.id}}. {{this.burger_name}}</p>
+
+    
+      {{!-- {{this.id}}.{{this.burger_name}} --}}
     {{/if}}
   {{/each}}
 </ul>
@@ -30,8 +35,8 @@
 
   <div class="form-group">
     <label for="slee">Devoured</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-    <input type="radio" name="devoured" value="0"> Not-Devoured
+    {{!-- <input type="radio" name="devoured" value="1" checked> Devoured!<br> --}}
+    <input type="radio" name="devoured" value="0" checked> Not-Devoured
   </div>
 
   <button type="submit">Add Burger</button>

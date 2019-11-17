@@ -2,7 +2,7 @@
 $(function() {
     $(".change-devoured").on("click", function(event) {
       var id = $(this).data("id");
-      var newDevoured = $(this).data("newdevoured");
+      var newDevoured = $(this).data("newDevoured");
   
       var newDevouredState = {
         devoured: newDevoured
@@ -14,7 +14,7 @@ $(function() {
         data: newDevouredState
       }).then(
         function() {
-          console.log("changed sleep to", newSleep);
+          console.log("changed devoured to", newDevoured);
           // Reload the page to get the updated list
           location.reload();
         }
@@ -26,8 +26,8 @@ $(function() {
       event.preventDefault();
   
       var newBurger = {
-        name: $("#burg").val().trim(),
-        devoured: $("[burger_name=devoured]:checked").val().trim()
+        name: $("#burgerName").val().trim(),
+        devoured: $("[burg=devoured]:checked").val().trim()
       };
   
       // Send the POST request.
